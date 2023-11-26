@@ -81,9 +81,7 @@ box-shadow: -2px 8px 45px -1px rgba(0,0,0,0.31);
 }
 
 /* team member css  */
-body{
-    background:#eee;
-    }
+
     .single_advisor_profile {
         position: relative;
         margin-bottom: 50px;
@@ -234,3 +232,10 @@ body{
         -webkit-box-shadow: -2px 8px 45px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: -2px 8px 45px 0px rgba(0,0,0,0.75);
     }
+
+/* donation css  */
+.donation-img{
+    width: 200px;
+    height: auto;
+    border-radius: 20px;
+}

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ProblemSharing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <!-- main css  -->
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+<!-- navbar start -->
+    <nav class="py-2 shadow rounded sticky-top bg-white">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center">
+          <a class="navbar-brand display-5 fw-bold link-color" href="#"><strong>Logo</strong></a>
+          <div class="d-flex">
+            <a href="index.html" class="text-decoration-none  link-color me-3 text-uppercase">Problem</a>
+            <a href="solved.html"  class="text-decoration-none  link-color text-uppercase">Solved</a>
+            <span class="dropdown ms-2 d-none d-sm-none d-md-block d-xl-block d-xxl-block">
+              <a class=" dropdown-toggle text-decoration-none  link-color ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                About Us
+              </a>
+            
+              <ul class="dropdown-menu ">
+                <li><a class="dropdown-item link-color" href="aboutus.html">About Us</a></li>
+                <li><a class="dropdown-item link-color" href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal">Upload video</a></li>
+                <li><a class="dropdown-item link-color" href="teammember.html">Team Member</a></li>
+                <li><a class="dropdown-item link-color" href="#">Donation</a></li>
+                <li><a class="dropdown-item link-color" href="#">Profile</a></li>
+              </ul>
+            </span>
+          </div>
+
+            <div class="d-none d-sm-none d-md-block d-xl-block d-xxl-block">
+              <form class="d-flex " role="search">
+                <input class="form-control  me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+              </form>
+            </div>
+
+
+          <button class="btn btn-dark d-block d-sm-block d-md-none d-xl-none d-xxl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i></button>
+
+          <div class="offcanvas offcanvas-end " data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" style="max-width: 250px; margin-top: 54px;">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title fw-bold link-color" id="offcanvasScrollingLabel">Filter</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <form class="d-flex " role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+              </form>
+              <div class="mt-2">                
+
+                <a href="aboutus.html" class="text-decoration-none  link-color me-3 mb-4">About Us</a> <br>
+                <a href="#" class="text-decoration-none  link-color me-3 mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Upload video</a> <br>
+                <a href="teammember.html" class="text-decoration-none  link-color me-3">Team Member</a> <br>
+                <a href="#" class="text-decoration-none  link-color me-3">Donation</a> <br>
+                <a href="#" class="text-decoration-none  link-color me-3">Profile</a> <br>
+
+                <a href="#" class="text-decoration-none  link-color me-3">Login</a> <br>
+                <a href="#"  class="text-decoration-none  link-color">Registration </a>
+              </div>
+            </div>
+          </div>
+            
+
+
+        </div>
+        
+
+
+      </div>
+    </nav>
+<!-- navbar end  -->
+  <!-- uploading modal  -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Your Video</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="">
+        <div class="modal-body">
+          <div class="mb-3">
+            
+                <!-- Input for selecting a video file -->
+              <input class="form-control form-control-sm" id="formFileSm" type="file" accept="video/*" onchange="previewVideo()">
+
+              <!-- Video preview container -->
+              <div id="videoPreviewContainer" class="">
+                  <video id="videoPreview" controls style="max-width: 100%;"></video>
+                  <div class="d-flex justify-content-center">
+                    <button class="btn btn-dark text-center" id="closeButton" onclick="closePreview()"><i class="bi bi-x-lg"></i></button>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+  <!-- uploading modal end -->
+  <script>
+    // Function to preview the selected video
+    function previewVideo() {
+        const videoInput = document.getElementById('formFileSm');
+        const videoPreview = document.getElementById('videoPreview');
+
+        // Check if a file is selected
+        if (videoInput.files && videoInput.files[0]) {
+            const videoFile = videoInput.files[0];
+
+            // Set the video source to the selected file
+            const videoURL = URL.createObjectURL(videoFile);
+            videoPreview.src = videoURL;
+
+            // Show the video preview container
+            document.getElementById('videoPreviewContainer').style.display = 'block';
+        } else {
+            // Hide the video preview container if no file is selected
+            document.getElementById('videoPreviewContainer').style.display = 'none';
+        }
+    }
+
+    // Function to close the video preview
+    function closePreview() {
+        // Hide the video preview container
+        document.getElementById('videoPreviewContainer').style.display = 'none';
+
+        // Clear the input file value
+        document.getElementById('formFileSm').value = '';
+    }
+</script>
+ 
+
+<div class="container-fluid shadow-sm">
+    <div class="container py-5">
+        <div class="d-flex justify-content-around ">
+            <div>
+                <img class="donation-img" src="/assets/img/donation.png" alt="donation">
+            </div>
+            <div>
+                <h4>Your Donation</h4>
+                <h3 id="displayedAmount" class="display-2">Tk000</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="d-flex justify-content-center ">
+        <div class="col-12 col-sm-12 col-md-10 col-xl-8 col-xxl-8 mt-2">
+        <span class="">Select Donation Amount</span>
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-outline-dark px-4 me-2" onclick="updateAmount(100)">Tk100</button>
+                <button type="button" class="btn btn-outline-dark px-4 me-2" onclick="updateAmount(200)">Tk200</button>
+                <button type="button" class="btn btn-outline-dark px-4 me-2" onclick="updateAmount(500)">Tk500</button>
+                <button type="button" class="btn btn-outline-dark px-4 me-2" onclick="updateAmount(1000)">Tk1000</button>
+            </div>
+            <form action="">
+                <div class="form-group mt-3">
+                    <label for="customAmount">Enter Custom Amount</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Tk</span>
+                        </div>
+                        <input type="number" class="form-control" id="customAmount" oninput="updateAmount(this.value)">
+                        <span class="input-group-text">.00</span>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Select Payment</option>
+                        <option value="1">bKash</option>
+                        <option value="2">Nagad</option>
+                        <option value="2">Bank Account</option>
+                      </select>
+                </div>
+                <input type="number" class="form-control mt-2" placeholder="Account Number">
+                <div class="d-flex justify-content-center mb-4">
+                    <button type="submit" class="btn btn-outline-dark px-4 mt-3 w-50 ">Payment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    // Function to update the displayed amount
+    function updateAmount(amount) {
+        // Update the displayed amount text
+        document.getElementById('displayedAmount').innerText = '$' + amount;
+        document.getElementById('customAmount').value=amount;
+    }
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  </body>
+</html>
