@@ -25,7 +25,7 @@
             
               <ul class="dropdown-menu ">
                 <li><a class="dropdown-item link-color" href="aboutus.html">About Us</a></li>
-                <li><a class="dropdown-item link-color" href="#">Upload video</a></li>
+                <li><a class="dropdown-item link-color" href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal">Upload video</a></li>
                 <li><a class="dropdown-item link-color" href="teammember.html">Team Member</a></li>
                 <li><a class="dropdown-item link-color" href="#">Donation</a></li>
                 <li><a class="dropdown-item link-color" href="#">Profile</a></li>
@@ -55,14 +55,14 @@
               </form>
               <div class="mt-2">                
 
-                <a href="aboutus.html" class="text-decoration-none fw-bold link-color me-3 mb-4"><strong>About Us</strong></a> <br>
-                <a href="#" class="text-decoration-none fw-bold link-color me-3 mb-4"><strong>Upload video</strong></a> <br>
-                <a href="teammember.html" class="text-decoration-none fw-bold link-color me-3"><strong>Team Member</strong></a> <br>
-                <a href="#" class="text-decoration-none fw-bold link-color me-3"><strong>Donation</strong></a> <br>
-                <a href="#" class="text-decoration-none fw-bold link-color me-3"><strong>Profile</strong></a> <br>
+                <a href="aboutus.html" class="text-decoration-none  link-color me-3 mb-4">About Us</a> <br>
+                <a href="#" class="text-decoration-none  link-color me-3 mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Upload video</a> <br>
+                <a href="teammember.html" class="text-decoration-none  link-color me-3">Team Member</a> <br>
+                <a href="#" class="text-decoration-none  link-color me-3">Donation</a> <br>
+                <a href="#" class="text-decoration-none  link-color me-3">Profile</a> <br>
 
-                <a href="#" class="text-decoration-none fw-bold link-color me-3"><strong>Login</strong></a> <br>
-                <a href="#"  class="text-decoration-none fw-bold link-color"><strong>Registration </strong></a>
+                <a href="#" class="text-decoration-none  link-color me-3">Login</a> <br>
+                <a href="#"  class="text-decoration-none  link-color">Registration </a>
               </div>
             </div>
           </div>
@@ -76,7 +76,72 @@
       </div>
     </nav>
 <!-- navbar end  -->
+  <!-- uploading modal  -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Your Video</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="">
+        <div class="modal-body">
+          <div class="mb-3">
+            
+                <!-- Input for selecting a video file -->
+              <input class="form-control form-control-sm" id="formFileSm" type="file" accept="video/*" onchange="previewVideo()">
 
+              <!-- Video preview container -->
+              <div id="videoPreviewContainer" class="">
+                  <video id="videoPreview" controls style="max-width: 100%;"></video>
+                  <div class="d-flex justify-content-center">
+                    <button class="btn btn-dark text-center" id="closeButton" onclick="closePreview()"><i class="bi bi-x-lg"></i></button>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+  <!-- uploading modal end -->
+  <script>
+    // Function to preview the selected video
+    function previewVideo() {
+        const videoInput = document.getElementById('formFileSm');
+        const videoPreview = document.getElementById('videoPreview');
+
+        // Check if a file is selected
+        if (videoInput.files && videoInput.files[0]) {
+            const videoFile = videoInput.files[0];
+
+            // Set the video source to the selected file
+            const videoURL = URL.createObjectURL(videoFile);
+            videoPreview.src = videoURL;
+
+            // Show the video preview container
+            document.getElementById('videoPreviewContainer').style.display = 'block';
+        } else {
+            // Hide the video preview container if no file is selected
+            document.getElementById('videoPreviewContainer').style.display = 'none';
+        }
+    }
+
+    // Function to close the video preview
+    function closePreview() {
+        // Hide the video preview container
+        document.getElementById('videoPreviewContainer').style.display = 'none';
+
+        // Clear the input file value
+        document.getElementById('formFileSm').value = '';
+    }
+</script>
+ 
 
 <!-- video start  -->
 

@@ -8,73 +8,71 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
     <!-- main css  -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      	#neubar {
+      background: #fae8d2;
+      box-shadow: 4px 6px 12px rgba(0,0,0,0.4)
+    }
+    
+    .nav-item .active {
+      border-radius: 6px;
+      background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
+      box-shadow:  4px 4px 8px #ddc1a0,
+                   -4px -4px 8px #f7e5cc;
+    }
+    #neubar .dropdown-menu a:hover {
+      color: #454545
+    }
+    #neubar .nav-item {
+      margin : auto 4px;
+    }
+    #neubar a {
+    
+      padding-left:12px;
+      padding-right:12px;
+    }
+    #neubar .dropdown-menu {
+      background : #545454
+    }
+    a.navbar-brand {
+      color: #454545
+    }
+    </style>
   </head>
   <body>
 <!-- navbar start -->
-    <nav class="py-2 shadow rounded sticky-top bg-white">
-      <div class="container-fluid">
-        <div class="d-flex justify-content-between align-items-center">
-          <a class="navbar-brand display-5 fw-bold link-color" href="#"><strong>Logo</strong></a>
-          <div class="d-flex">
-            <a href="index.html" class="text-decoration-none  link-color me-3"><strong>Problem</strong></a>
-            <a href="solved.html"  class="text-decoration-none  link-color"><strong>Solved</strong></a>
-            <span class="dropdown ms-2 d-none d-sm-none d-md-block d-xl-block d-xxl-block">
-              <a class=" dropdown-toggle text-decoration-none fw-bold link-color ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                About Us
-              </a>
-            
-              <ul class="dropdown-menu ">
-                <li><a class="dropdown-item link-color" href="aboutus.html">About Us</a></li>
-                <li><a class="dropdown-item link-color" href="#">Upload video</a></li>
-                <li><a class="dropdown-item link-color" href="#">Team Member</a></li>
-                <li><a class="dropdown-item link-color" href="#">Donation</a></li>
-                <li><a class="dropdown-item link-color" href="#">Profile</a></li>
-              </ul>
-            </span>
-          </div>
+<nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="https://th.bing.com/th/id/R.b87ac350211b155c514dd4924630b9fe?rik=QvDrXv3gl9u5pQ&pid=ImgRaw&r=0" height="60" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-            <div class="d-none d-sm-none d-md-block d-xl-block d-xxl-block">
-              <form class="d-flex " role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-              </form>
-            </div>
-
-
-          <button class="btn btn-dark d-block d-sm-block d-md-none d-xl-none d-xxl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i></button>
-
-          <div class="offcanvas offcanvas-end " data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" style="max-width: 250px; margin-top: 54px;">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title fw-bold link-color" id="offcanvasScrollingLabel">Filter</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <form class="d-flex " role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-              </form>
-              <div class="mt-2">                
-
-                <a href="#" class="text-decoration-none fw-bold link-color me-3 mb-4"><strong>About Us</strong></a> <br>
-                <a href="#" class="text-decoration-none fw-bold link-color me-3 mb-4"><strong>Upload video</strong></a> <br>
-                <a href="#" class="text-decoration-none fw-bold link-color me-3"><strong>Team Member</strong></a> <br>
-                <a href="#" class="text-decoration-none fw-bold link-color me-3"><strong>Donation</strong></a> <br>
-                <a href="#" class="text-decoration-none fw-bold link-color me-3"><strong>Profile</strong></a> <br>
-
-                <a href="#" class="text-decoration-none fw-bold link-color me-3"><strong>Login</strong></a> <br>
-                <a href="#"  class="text-decoration-none fw-bold link-color"><strong>Registration </strong></a>
-              </div>
-            </div>
-          </div>
-            
-
-
-        </div>
-        
-
-
-      </div>
-    </nav>
+    <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto ">
+        <li class="nav-item">
+          <a class="nav-link mx-2 active" aria-current="page" href="#">Problem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2 " href="#">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="#">Pricing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Company
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item " href="#">Blog</a></li>
+            <li><a class="dropdown-item" href="#">About Us</a></li>
+            <li><a class="dropdown-item" href="#">Contact us</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <!-- navbar end  -->
 
 
